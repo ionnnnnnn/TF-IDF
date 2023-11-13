@@ -9,7 +9,7 @@ public class Document {
 
     String text;
     Map<String, Integer> termMap = new HashMap<>();
-    Map<String, Integer> IF_IDFMap = new HashMap<>();
+    Map<String, Double> IF_IDFMap = new HashMap<>();
 
     /**
      * 读取文件并初始化文件类

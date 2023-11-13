@@ -33,8 +33,18 @@ public class Main {
      * @param doc2 文档2
      * @return 相似度
      */
-    public int calSimilarity(Document doc1, Document doc2) {
-        return 0;
+    public double calSimilarity(Document doc1, Document doc2) {
+        double numerator = 0d, denominator1 = 0d, denominator2 = 0d;
+        for(String term : doc1.IF_IDFMap.keySet()) {
+            double wk1 = doc1.IF_IDFMap.get(term);
+            double wk2 = doc2.IF_IDFMap.get(term);
+            numerator += wk1 * wk2;
+
+            denominator1 += wk1 * wk1;
+            denominator2 += wk2 * wk2;
+        }
+        double denominator = Math.sqrt(denominator1 * denominator2);
+        return numerator / denominator;
     }
 
     /**
